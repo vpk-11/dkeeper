@@ -1,6 +1,6 @@
 # dkeeper
 
-A google Keep style short form notes app
+DKeeper is a project built using React and Motoko on DFinity's ICP blockchain. It is a note-taking application, built in a similar styling to Google Keep. Users can create, and delete notes. DKeeper leverages the security and decentralized nature of the ICP blockchain to ensure that user data is safe.
 
 ## Tech Stack
 React, DFINITY's ICP, Motoko
