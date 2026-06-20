@@ -1,36 +1,31 @@
 import List "mo:base/List";
-import Debug "mo:base/Debug";
 
 actor DKeeper {
-	public type Note = {
-		title: Text;
-		content: Text;
-	};
-	stable var notes: List.List<Note> = List.nil<Note>(); // List object -> List of Notes (array of notes)
-	// List adds element to start of the list
-	
-	// Create Function
-	public func createNote(titleText: Text, contentText: Text){
-		let newNote: Note = {
-			title = titleText;
-			content = contentText;
-		};
-		notes := List.push(newNote, notes);
-		// Debug.print(debug_show(notes));
-	};
+    public type Note = {
+        id: Nat;
+        title: Text;
+        content: Text;
+    };
 
-	// Read Notes
-	public query func readNotes(): async [Note] {
-		return List.toArray(notes);
-	};
+    stable var notes: List.List<Note> = List.nil<Note>();
+    stable var nextId: Nat = 0;
 
-	// Delete Notes
-	public func removeNote(id: Nat){
-		// motoko doesnt have a remove element / delete element function
-		// take drop append
-		let listFront = List.take(notes, id);
-		let listBack = List.drop(notes, id + 1);
-		
-		notes := List.append(listFront, listBack);
-	};
+    public func createNote(titleText: Text, contentText: Text) : async Note {
+        let newNote: Note = {
+            id = nextId;
+            title = titleText;
+            content = contentText;
+        };
+        notes := List.push(newNote, notes);
+        nextId += 1;
+        return newNote;
+    };
+
+    public query func readNotes(): async [Note] {
+        return List.toArray(notes);
+    };
+
+    public func removeNote(id: Nat) {
+        notes := List.filter(notes, func(n: Note): Bool { n.id != id });
+    };
 };
