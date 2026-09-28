@@ -1,6 +1,6 @@
 {
 	"name": "dkeeper_frontend",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"description": "DKeeper: an Internet Computer notes app with a Motoko canister backend",
 	"keywords": [
 		"Internet Computer",
