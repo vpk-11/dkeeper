@@ -1,6 +1,6 @@
 # DKeeper
-<!-- version: v0.6.0 -->
-![Version](https://img.shields.io/badge/version-v0.6.0-blue)
+<!-- version: v0.7.0 -->
+![Version](https://img.shields.io/badge/version-v0.7.0-blue)
 
 A note-taking app running entirely on the Internet Computer. Notes are stored in a Motoko canister using stable state, so they survive canister upgrades. The React frontend talks directly to the canister through generated Candid bindings — no REST API, no external database, no browser storage.
 
@@ -54,6 +54,7 @@ pnpm run build
 Outputs to `dist/dkeeper_frontend/`. Deploy with `dfx deploy --network=ic`.
 
 ## Changelog
+- **v0.7.0** (2026-11-18): minor bump
 - **v0.6.0** (2026-11-18): minor bump
 - **v0.5.0** (2026-11-18): minor bump
 - **v0.4.0** (2026-09-28): minor bump
